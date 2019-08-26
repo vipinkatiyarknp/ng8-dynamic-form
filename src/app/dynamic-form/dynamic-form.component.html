@@ -1,0 +1,75 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div *ngFor='let data of jsonFormData' [ngSwitch]="data.tag">
+        <div *ngSwitchCase="'input'">
+            <div class="form-group p-10">
+                <label class="text-left" [ngStyle]='data.lableStyles'>{{data?.label}}</label>
+                <span *ngIf=checkifInputType(data.type)>
+
+                    <input class="form-control flat-text" [type]="data.type" [placeholder]="data.placeholder"
+                        value={{data.value}} [ngStyle]='data.inputStyles' formControlName={{data.name}}
+                        [ngClass]="{ 'is-invalid': submitted && registerForm.controls[data.name].errors }">
+
+                    <div *ngIf="submitted && registerForm.controls[data.name].errors" class="invalid-feedback">
+                        <div *ngIf="registerForm.controls[data.name].errors.required">{{data?.errorMessage}}</div>
+                        <div *ngIf="data.name === 'userEmail' && registerForm.controls[data.name].errors.email">Email
+                            must be a valid email address</div>
+                        <div
+                            *ngIf="data.name === 'userConfirmPassword' && registerForm.controls[data.name].errors.mustMatch">
+                            Passwords must match</div>
+                    </div>
+                </span>
+
+
+                <span *ngIf='data.type == "radio"'>
+                    <div>
+                        <span *ngFor="let radioValues of data.values;let i = index">
+                            <input type="radio" value="radioValues" [ngStyle]='data.inputStyles'
+                                formControlName={{data.name}}
+                                [ngClass]="{ 'is-invalid': submitted && registerForm.controls[data.name].errors }">
+                            {{radioValues}}
+                        </span>
+                        <div *ngIf="submitted && !registerForm.controls[data.name].value"><span class="error-msg">{{data?.errorMessage}}</span></div>
+                    </div>
+                </span>
+
+                <span *ngIf='data.type == "checkbox"'>
+                    <div>
+                        <span *ngFor="let radioValues of data.values">
+                            <input type="checkbox" value="radioValues" [ngStyle]='data.inputStyles'
+                                formControlName={{data.name}}
+                                [ngClass]="{ 'is-invalid': submitted && registerForm.controls[data.name].errors }">
+                            {{radioValues}}
+                        </span>
+                        <div *ngIf="submitted && !registerForm.controls[data.name].value"><span class="error-msg">{{data?.errorMessage}}</span></div>
+                    </div>
+
+                </span>
+            </div>
+        </div>
+
+        <div *ngSwitchCase="'select'">
+            <div class="form-group p-10">
+                <label [ngStyle]='data.lableStyles'>{{data?.label}}</label>
+                <select class="form-control flat-text" [ngStyle]='data.inputStyles' formControlName={{data.name}}
+                    [ngClass]="{ 'is-invalid': submitted && registerForm.controls[data.name].errors }">
+                    <option>{{data.label}}</option>
+                    <option value="selectValues" *ngFor="let selectValues of data.values">
+                        {{selectValues}}
+                    </option>
+                </select>
+                <div *ngIf="submitted && registerForm.controls[data.name].errors" class="invalid-feedback">
+                    <div *ngIf="registerForm.controls[data.name].errors.required">{{data?.errorMessage}}</div>
+                </div>
+            </div>
+        </div>
+
+        <span *ngSwitchCase="'button'">
+            <span class="form-group col-4 mx-auto d-flex justify-content-between">
+                <button class="btn btn-primary" [type]='data.type ? data.type : "button"' [ngStyle]='data.buttonStyle'
+                    (click)="data&&data.event&& data.event ==='clear'?onReset():''">
+                    {{data.value}}
+                </button>
+            </span>
+        </span>
+    </div>
+</form>

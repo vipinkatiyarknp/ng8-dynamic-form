@@ -1,0 +1,23 @@
+.header{
+    background:#f5F5F5;
+    padding: 30px;
+}
+.zero-padding{
+    padding:0;
+}
+.p-10{
+    padding: 10px;
+}
+.flat-text{
+    border: 1px solid #DDD;
+    background-color: #FFF;
+    border-radius: 0;
+    max-width: 50%;
+}
+.form-control.is-invalid{
+    border-color: #dc3545 !important;
+}
+.error-msg{
+    color: #dc3545;
+}
+

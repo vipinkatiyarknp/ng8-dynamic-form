@@ -1,0 +1,186 @@
+[
+    {
+        "label": "Input Text",
+        "tag": "input",
+        "type": "text",
+        "name": "userName",
+        "placeholder": "Please Enter Your Name",
+        "value": "",
+        "validator": [
+            "required"
+        ],
+        "errorMessage": "Field can not be left blank!",
+        "inputStyles": {
+            "background-color": "#FFF",
+            "font-size": "15px",
+            "color": "black"
+        },
+        "labelStyles": {
+            "font-weight": "bold"
+        }
+    },
+    {
+        "label": "Input Email",
+        "tag": "input",
+        "type": "email",
+        "name": "userEmail",
+        "placeholder": "Please Enter Your Email",
+        "errorMessage": "Email can not be left blank!",
+        "value": "",
+        "validator": [
+            "required",
+            "email"
+        ],
+        "inputStyles": {
+            "background-color": "#FFF",
+            "font-size": "15px",
+            "color": "black"
+        },
+        "labelStyles": {
+            "font-weight": "bold"
+        }
+    },
+    {
+        "label": "Input Password",
+        "tag": "input",
+        "type": "password",
+        "name": "userPassword",
+        "errorMessage": "Password should have min 6 Char!",
+        "validator": [
+            "required",
+            "minLength(6)",
+            "MustMatch"
+        ],
+        "placeholder": "Please Enter Your Password",
+        "labelStyles": {
+            "font-weight": "bold"
+        }
+    },
+    {
+        "label": "Input Confirm Password",
+        "tag": "input",
+        "type": "password",
+        "name": "userConfirmPassword",
+        "placeholder": "Password Should Match",
+        "errorMessage": "Confirm Password can not be left blank!",
+        "validator": [
+            "required",
+            "MustMatch"
+        ],
+        "labelStyles": {
+            "font-weight": "bold"
+        }
+    },
+    {
+        "label": "Input Mobile Number",
+        "tag": "input",
+        "type": "tel",
+        "name": "userMobile",
+        "errorMessage": "Mobile number can not left blank!",
+        "validator": [
+            "required"
+        ],
+        "placeholder": "Please Enter Your Mobile Number",
+        "labelStyles": {
+            "font-weight": "bold"
+        }
+    },
+    {
+        "label": "Input Number",
+        "tag": "input",
+        "type": "number",
+        "name": "userAge",
+        "errorMessage": "Number can not left blank!",
+        "validator": [
+            "required"
+        ],
+        "placeholder": "Please Enter Age",
+        "labelStyles": {
+            "font-weight": "bold"
+        }
+    },
+    {
+        "label": "Input date",
+        "tag": "input",
+        "type": "date",
+        "name": "userDate",
+        "errorMessage": "Date can not left blank!",
+        "validator": [
+            "required"
+        ],
+        "placeholder": "Please Select Date",
+        "labelStyles": {
+            "font-weight": "bold"
+        }
+    },
+    {
+        "label": "Select RadioButton",
+        "tag": "input",
+        "type": "radio",
+        "name": "userGender",
+        "errorMessage": "Radio button can not left blank!",
+        "validator": [
+            "required"
+        ],
+        "placeholder": "",
+        "values": [
+            "Male",
+            "Female"
+        ],
+        "labelStyles": {
+            "font-weight": "bold"
+        }
+    },
+    {
+        "tag": "input",
+        "type": "checkbox",
+        "name": "userCheckbox",
+        "label": "Select CheckBox",
+        "errorMessage": "CheckBox can not left blank!",
+        "validator": [
+            "required"
+        ],
+        "values": [
+            "Checkbox 1",
+            "Checkbox 2",
+            "Checkbox 3"
+        ],
+        "labelStyles": {
+            "font-weight": "bold"
+        }
+    },
+    {
+        "tag": "select",
+        "label": "",
+        "name": "userSelect",
+        "errorMessage": "Dropdown can not left blank!",
+        "validator": [
+            "required"
+        ],
+        "values": [
+            "Dropdown 1",
+            "Dropdown 2",
+            "Dropdown 3",
+            "Dropdown 4"
+        ],
+        "labelStyles": {
+            "font-weight": "bold"
+        },
+        "inputStyles": {
+            "background-color": "#FFF",
+            "font-size": "15px",
+            "color": "#666"
+        }
+    },
+    {
+        "value": "RESET",
+        "tag": "button",
+        "event": "clear"
+    },
+    {
+        "type": "submit",
+        "value": "SUBMIT",
+        "tag": "button",
+        "event": "submit"
+    }
+]
